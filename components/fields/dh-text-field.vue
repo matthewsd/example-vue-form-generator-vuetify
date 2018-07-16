@@ -1,13 +1,12 @@
 <template>
     <v-text-field
+            v-bind="schema.attributes"
             v-model="value"
             :label="schema.name"
             :readonly="schema.readonly"
             :disabled="schema.disabled"
             :placeholder="schema.placeholder"
-            :counter="schema.counter"
             :hint="schema.hint"
-            v-bind="schema.attributes"
             @blur="onBlur"
             @change="onChange"
             @focus="onFocus"

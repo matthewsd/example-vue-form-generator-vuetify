@@ -8,6 +8,8 @@ It may not e the cleanest way to do this, but It at least is working.
 
 If you wish to add to the fields feel free, I'm currently playing with the idea of defining the common properties on the template eg `Label, Hint, Placeholder etc.` and the others such as `max, min` we'll store inside an attributes property. You can see an example of this working on the DhTextField
 
+Label, is used by vue-form-generator by defaault to provide a `label`, which conflicts with the vuetify `:label` property. So I've been using `name` instead.
+
 ## Build Setup
 
 ``` bash

@@ -35,7 +35,9 @@
             {
               type: 'DhTextField',
               name: 'Text Field Type',
-              model: 'nested.textField' // An example of a nested model property being reactive
+              model: 'nested.textField', // An example of a nested model property being reactive,
+              attributes:
+                { counter: 10, maxlength: 5 }
             },
             {
               type: 'DhPassword',
