@@ -1,72 +1,12 @@
-## Issue
-Within /pages/index.vue I'm trying to use vue-form-generator whilst supplying Vuetify style fields which are being added as components within /plugins/vuetify.js
+# Vuetify From Generator
 
+This isn't ready yet, but it's getting there.
 
-``` javascript
-// pages/index.vue
-<script>
-  import VueFormGenerator from 'vue-form-generator'
-  import {mapGetters} from 'vuex'
+If you look in `/pages/index.vue` you can see the for generator working. And the way I'm adding to the fields if by first creating a template in `/components/fields/**.vue` and then within `/plugins/vuetify.js` I'm adding them to the compilation. 
 
-  export default {
-    computed: {
-      ...mapGetters({
-        counties: 'counties/get'
-      })
-    },
-    components: {
-      'vue-form-generator': VueFormGenerator.component
-    },
-    data () {
-      return {
-        model: {
-          select: null
-        },
-        schema: {
-          fields: [
-            {
-              type: 'DhSelect',
-              name: 'Select Type',
-              model: 'select',
-              items: this.counties
-            }
-          ]
-        }
-      }
-    }
-  }
-</script>
+It may not e the cleanest way to do this, but It at least is working.
 
-```
-``` javascript
-// plugins/vuetify.js
-
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-import VueFormGenerator from 'vue-form-generator'
-import DhSelect from '~/components/fields/dh-select'
-
-Vue.use(Vuetify)
-Vue.component('fieldDhSelect', DhSelect)
-Vue.use(VueFormGenerator)
-```
-
-Text fields are working fine, however the select is causing greif when trying to dynamically supply it with items (which would be required for this to work as intented),
-
-Currently supplying items hard coded from a Vuex store, however when complete this will most likely be coming from the database.
-
-The error given is:
-
-```$xsltvue.runtime.esm.js:587
- [Vue warn]: The client-side rendered virtual DOM tree is not matching 
- server-rendered content. This is likely caused by incorrect HTML markup, 
- for example nesting block-level elements inside <p>, or missing <tbody>. 
- Bailing hydration and performing full client-side render.
-```
-
-If, instead of trying to use the computed property, I supply the Array directly to the property, this error does not occur. But this isn't a sufficient fix.
-
-
+If you wish to add to the fields feel free, I'm currently playing with the idea of defining the common properties on the template eg `Label, Hint, Placeholder etc.` and the others such as `max, min` we'll store inside an attributes property. You can see an example of this working on the DhTextField
 
 ## Build Setup
 

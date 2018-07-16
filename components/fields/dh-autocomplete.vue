@@ -2,8 +2,15 @@
     <v-autocomplete
             v-model="value"
             :items="schema.items"
-            persistent-hint
-            prepend-icon="mdi-city"
+            :label="schema.name"
+            :required="schema.required"
+            :readonly="schema.readonly"
+            :disabled="schema.disabled"
+            :item-text="schema.itemText"
+            :item-value="schema.itemValue"
+            single-line
+            bottom
+            auto
     ></v-autocomplete>
 </template>
 
@@ -11,7 +18,7 @@
   import {abstractField} from 'vue-form-generator'
 
   export default {
-    name: 'dh-autcomplete',
+    name: 'dh-autocomplete',
     mixins: [abstractField],
     methods: {
       onBlur: function () {

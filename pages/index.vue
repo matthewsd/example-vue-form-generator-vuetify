@@ -7,9 +7,9 @@
                     <vue-form-generator :schema="schema" :model="model"></vue-form-generator>
                 </v-card-text>
                 <v-card-text>
-                    <pre><strong>Schema:</strong>{{ schema }}</pre>
+                    <!--<pre><strong>Schema:</strong>{{ schema }}</pre>-->
                     <pre><strong>Model:</strong>{{ model }}</pre>
-                    <pre><strong>Counties:</strong>{{ counties }}</pre>
+                    <!--<pre><strong>Counties:</strong>{{ counties }}</pre>-->
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -27,8 +27,38 @@
   export default {
     computed: {
       ...mapGetters({
-        counties: 'counties/get'
-      })
+        items: 'items/get'
+      }),
+      schema () {
+        return {
+          fields: [
+            {
+              type: 'DhTextField',
+              name: 'Text Field Type',
+              model: 'nested.textField' // An example of a nested model property being reactive
+            },
+            {
+              type: 'DhPassword',
+              name: 'Password Field Type',
+              model: 'password'
+            },
+            {
+              type: 'DhSelect',
+              name: 'Select Type',
+              model: 'select',
+              items: this.items,
+              itemText: 'name', // If these fields are not provided, it will fall back the the default Value/Text combo
+              itemValue: 'id' // As above
+            },
+            {
+              type: 'DhAutocomplete',
+              name: 'Autocomplete Type',
+              model: 'autocomplete',
+              items: this.items
+            }
+          ]
+        }
+      }
     },
     components: {
       'vue-form-generator': VueFormGenerator.component
@@ -36,23 +66,13 @@
     data () {
       return {
         model: {
-          select: null
-        },
-        schema: {
-          fields: [
-            {
-              type: 'DhSelect',
-              name: 'Select Type',
-              model: 'select',
-              items: this.counties
-            }
-          ]
+          nested: {
+            textField: 'A name'
+          },
+          select: 5,
+          autocomplete: 1,
+          password: 'Secret'
         }
-      }
-    },
-    methods: {
-      getCounties () {
-        return this.counties
       }
     }
   }

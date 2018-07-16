@@ -6,6 +6,8 @@
             :required="schema.required"
             :readonly="schema.readonly"
             :disabled="schema.disabled"
+            :item-text="schema.itemText"
+            :item-value="schema.itemValue"
             single-line
             bottom
             auto
