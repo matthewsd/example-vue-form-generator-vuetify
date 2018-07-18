@@ -33,7 +33,7 @@
         return {
           fields: [
             {
-              type: 'DhTextField',
+              type: 'v-text-field',
               name: 'Text Field Type',
               model: 'nested.textField', // An example of a nested model property being reactive,
               attributes:
