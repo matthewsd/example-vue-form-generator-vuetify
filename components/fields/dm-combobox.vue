@@ -12,6 +12,7 @@
             multiple
             persistent-hint
             small-chips
+            v-bind="schema.attributes"
     >
         <template slot="no-data">
             <v-list-tile>

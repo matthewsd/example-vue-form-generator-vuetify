@@ -9,9 +9,10 @@ export const state = () => (
       'description': 'jjj',
       groups: [
         {
+          id: 1,
           name: 'stage 1',
-          title: '',
-          description: '',
+          title: 'Client Specific Fields',
+          description: '...',
           legend: null,
           fields: [
             {
@@ -161,9 +162,10 @@ export const state = () => (
           ]
         },
         {
+          id: 2,
           name: 'stage 2',
-          title: '',
-          description: '',
+          title: 'Persons and Groups affected',
+          description: 'who is at risk?',
           legend: null,
           fields: [
             {
@@ -177,8 +179,8 @@ export const state = () => (
               required: true,
               rules: [],
               readonly: false,
-              items: ['Staff Members', 'Members Of Public'],
-              attributes: {}
+              items: [{id: 1, name: 'Staff Members'}, {id: 2, name: 'Members Of Public'}],
+              attributes: {'item-value': 'id', 'item-text': 'name'}
             },
             {
               '@id': 19,
@@ -191,14 +193,15 @@ export const state = () => (
               required: true,
               rules: [],
               readonly: false,
-              items: ['Dave Warren', 'Jordan Wright', 'Doug Hayward', 'Gareth Hopkins'],
+              items: ['Dave Warren', 'Jordan Wright', 'Doug Hayward', 'Gareth Hopkins', 'Gareth Hopkins2', 'Gareth Hopkins3', 'Gareth Hopkins4'],
               attributes: {}
             }
           ]
         },
         {
+          id: 3,
           name: 'stage 3',
-          title: '',
+          title: 'just some tests',
           description: '',
           legend: null,
           fields: [
