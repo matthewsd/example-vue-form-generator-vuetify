@@ -12,6 +12,9 @@ import DmTimePickerDialog from '~/components/fields/dm-time-picker-dialog'
 import DmSlider from '~/components/fields/dm-slider'
 import DmTextarea from '~/components/fields/dm-textarea'
 import DmCombobox from '~/components/fields/dm-combobox'
+import DmCheckbox from '~/components/fields/dm-checkbox'
+import DmMultiCheckboxImage from '~/components/fields/dm-multi-checkbox-image'
+import DmHazardControls from '~/components/fields/dm-hazard-controls'
 
 // Add the form components to Vue (Register)
 Vue.component('field-v-text-field', DhTextField)
@@ -25,5 +28,8 @@ Vue.component('field-v-time-picker-dialog', DmTimePickerDialog)
 Vue.component('field-v-slider', DmSlider)
 Vue.component('field-v-textarea', DmTextarea)
 Vue.component('field-v-combobox', DmCombobox)
+Vue.component('field-v-checkbox', DmCheckbox)
+Vue.component('field-sh-multi-checkbox-image', DmMultiCheckboxImage)
+Vue.component('field-sh-hazard-controls', DmHazardControls)
 
 Vue.use(VueFormGenerator)
